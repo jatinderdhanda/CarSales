@@ -1,0 +1,15 @@
+C:\Users\dhandaj\source\repos\CarSales\CarSales.Infrastructure\bin\Debug\net7.0\CarSales.Infrastructure.deps.json
+C:\Users\dhandaj\source\repos\CarSales\CarSales.Infrastructure\bin\Debug\net7.0\CarSales.Infrastructure.dll
+C:\Users\dhandaj\source\repos\CarSales\CarSales.Infrastructure\bin\Debug\net7.0\CarSales.Infrastructure.pdb
+C:\Users\dhandaj\source\repos\CarSales\CarSales.Infrastructure\bin\Debug\net7.0\CarSales.Domain.dll
+C:\Users\dhandaj\source\repos\CarSales\CarSales.Infrastructure\bin\Debug\net7.0\CarSales.Domain.pdb
+C:\Users\dhandaj\source\repos\CarSales\CarSales.Infrastructure\obj\Debug\net7.0\CarSales.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\dhandaj\source\repos\CarSales\CarSales.Infrastructure\obj\Debug\net7.0\CarSales.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dhandaj\source\repos\CarSales\CarSales.Infrastructure\obj\Debug\net7.0\CarSales.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\dhandaj\source\repos\CarSales\CarSales.Infrastructure\obj\Debug\net7.0\CarSales.Infrastructure.AssemblyInfo.cs
+C:\Users\dhandaj\source\repos\CarSales\CarSales.Infrastructure\obj\Debug\net7.0\CarSales.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\dhandaj\source\repos\CarSales\CarSales.Infrastructure\obj\Debug\net7.0\CarSales.Infrastructure.csproj.CopyComplete
+C:\Users\dhandaj\source\repos\CarSales\CarSales.Infrastructure\obj\Debug\net7.0\CarSales.Infrastructure.dll
+C:\Users\dhandaj\source\repos\CarSales\CarSales.Infrastructure\obj\Debug\net7.0\refint\CarSales.Infrastructure.dll
+C:\Users\dhandaj\source\repos\CarSales\CarSales.Infrastructure\obj\Debug\net7.0\CarSales.Infrastructure.pdb
+C:\Users\dhandaj\source\repos\CarSales\CarSales.Infrastructure\obj\Debug\net7.0\ref\CarSales.Infrastructure.dll

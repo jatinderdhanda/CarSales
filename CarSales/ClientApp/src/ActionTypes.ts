@@ -1,0 +1,11 @@
+export const enum ActionTypes {
+    SUCCESS = "SUCCESS",
+    ERROR = "ERROR",
+    CLOSE = "CLOSE",
+    CANCEL = "CANCEL",
+    SHOW_LOADER = "SHOW_LOADER",
+    UPDATE_MODEL = "UPDATE_MODEL",
+    UPDATE_DESIGNERFIELD = "UPDATE_DESIGNERFIELD",
+    INCREMENT = "INCREMENT",
+  }
+  
