@@ -1,10 +1,10 @@
 ﻿using CarSales.Domain.Models;
 
-namespace CarSales.Infrastructure.Repositories.Interfaces
+namespace CarSales.Domain.Interfaces
 {
     public interface ICarDetailsRepository
     {
-        Task<CarDetails?> GetAllCarDetailsAsync();
+        Task<CarDetails?> GetCarDetailsByIdAsync(Guid id);
         Task AddCarDetailsAsync(CarDetails carDetails);
     }
 }

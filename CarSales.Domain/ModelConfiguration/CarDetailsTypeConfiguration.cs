@@ -12,26 +12,30 @@ namespace CarSales.Infrastructure.ModelConfiguration
                 .HasKey(k => k.Id);
 
             builder.Property(k => k.Id)
-                .HasColumnName("id")
-                .ValueGeneratedOnAdd();
+                .HasColumnName("id");
 
-            builder.Property(k => k.CarRegistrationNumber)
-                .HasColumnName("car_registration_number")
+            builder.Property(k => k.RegistrationNumber)
+                .HasColumnName("registration_number")
                 .IsRequired();
 
-            builder.Property(k => k.CarName)
-                .HasColumnName("car_name")
+            builder.Property(k => k.Name)
+                .HasColumnName("name")
                 .IsRequired();
-            builder.Property(k => k.CarCompanyName)
-                .HasColumnName("car_company_name")
-                .IsRequired();
-            builder.Property(k => k.CarDescription)
-                .HasColumnName("car_description");
-            builder.Property(k => k.CarColor)
-                .HasColumnName("car_color");
-            builder.Property(k => k.CarManufactureYear)
-                .HasColumnName("car_manufacture_year");
 
+            builder.Property(k => k.CompanyName)
+                .HasColumnName("company_name")
+                .IsRequired();
+            builder.Property(k => k.Color)
+                .HasColumnName("color");
+
+            builder.Property(k => k.ManufactureYear)
+                .HasColumnName("manufacture_year");
+
+            builder.Property(k => k.Status)
+                .HasColumnName("status");
+
+            builder.Property(k => k.FuelType)
+                .HasColumnName("fuel_type");
         }
     }
 }

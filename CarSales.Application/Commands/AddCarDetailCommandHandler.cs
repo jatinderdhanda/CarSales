@@ -1,4 +1,5 @@
-﻿using CarSales.Domain.Models;
+﻿using CarSales.Domain.Interfaces;
+using CarSales.Domain.Models;
 using CarSales.Infrastructure.Repositories.Interfaces;
 using MediatR;
 
@@ -20,11 +21,11 @@ namespace CarSales.Application.Commands
 
             var carDetails = new CarDetails
             {
-                CarName = command.CarName,
-                CarColor = command.CarColor,
-                CarDescription = command.CarDescription,
-                CarCompanyName = command.CarCompanyName,
-                CarRegistrationNumber = command.CarRegistrationNumber,
+                Name = command.CarName,
+                Color = command.CarColor,
+                Description = command.CarDescription,
+                CompanyName = command.CarCompanyName,
+                RegistrationNumber = command.CarRegistrationNumber,
             };
 
             await _carDetailsRepository.AddCarDetailsAsync(carDetails);

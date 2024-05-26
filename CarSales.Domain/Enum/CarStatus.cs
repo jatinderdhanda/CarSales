@@ -1,6 +1,6 @@
 ﻿namespace CarSales.Domain.Enum
 {
-    public enum Status
+    public enum CarStatus
     {
         Available,
         UnAvailabe

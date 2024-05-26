@@ -1,5 +1,5 @@
-﻿using CarSales.Domain.Models;
-using CarSales.Infrastructure.Repositories.Interfaces;
+﻿using CarSales.Domain.Interfaces;
+using CarSales.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarSales.Infrastructure.Repositories
@@ -11,9 +11,9 @@ namespace CarSales.Infrastructure.Repositories
         _dbContext = dbContext;
         }
 
-        public async Task<CarDetails?> GetAllCarDetailsAsync()
+        public async Task<CarDetails?> GetCarDetailsByIdAsync(Guid id)
         {
-            return await _dbContext.CarDetails.FirstOrDefaultAsync(x => x.CarName != string.Empty);
+            return await _dbContext.CarDetails.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task AddCarDetailsAsync(CarDetails carDetails) { 
