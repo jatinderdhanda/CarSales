@@ -29,5 +29,26 @@ namespace CarSales.Domain.Models
         public string RegistrationNumber { get; private set; }
         public CarStatus Status { get; private set; } = CarStatus.Available;
         public FuelType FuelType { get; private set; } = FuelType.Petrol;
+
+        public static CarDetails CreateCarDetail(Guid id,
+                string name,
+                string companyName,
+                string color,
+                string manufacturerYear,
+                string registrationNumber,
+                CarStatus status,
+                FuelType fuelType)
+        {
+            var carDetails = new CarDetails(id,
+                name,
+                companyName,
+                color,
+                manufacturerYear,
+                registrationNumber,
+                status,
+                fuelType);
+
+            return carDetails;
+        }
     }
 }

@@ -4,7 +4,8 @@ namespace CarSales.Domain.Interfaces
 {
     public interface ICarDetailsRepository
     {
-        Task<CarDetails?> GetCarDetailsByIdAsync(Guid id);
-        Task AddCarDetailsAsync(CarDetails carDetails);
+        Task<CarDetails?> GetByIdAsync(Guid id, CancellationToken cancellationToken);
+
+        void Add(CarDetails carDetails);
     }
 }

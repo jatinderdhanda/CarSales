@@ -1,7 +1,8 @@
 ﻿using CarSales.Domain.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-namespace CarSales.Domain.ModelConfiguration
+
+namespace CarSales.Infrastructure.ModelConfiguration
 {
     public class BookingEntityConfiguration : IEntityTypeConfiguration<Booking>
     {
@@ -45,6 +46,10 @@ namespace CarSales.Domain.ModelConfiguration
 
             builder.Property(k => k.CancelledOnUtc)
                 .HasColumnName("cancelled_on_utc");
+
+            builder.HasOne<CarDetails>()
+            .WithMany()
+            .HasForeignKey(booking => booking.CarId);
         }
     }
 }

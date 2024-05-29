@@ -38,6 +38,24 @@ namespace CarSales.Domain.Models
         public DateTime? CompletedOnUtc { get; private set; }
 
         public DateTime? CancelledOnUtc { get; private set; }
-    }
 
+        public static Booking Reserve(
+            Guid carId,
+            Guid employeeId,
+            Guid customerId,
+            DateRange duration,
+            DateTime utcNow)
+        {
+            var booking = new Booking(
+                Guid.NewGuid(),
+                employeeId,
+                customerId,
+                carId,
+                duration,
+                BookingStatus.Reserved,
+                utcNow);
+
+            return booking;
+        }
+    }
 }

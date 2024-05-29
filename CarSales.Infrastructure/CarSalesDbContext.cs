@@ -1,11 +1,10 @@
-﻿using CarSales.Infrastructure.ModelConfiguration;
-using CarSales.Domain.Models;
+﻿using CarSales.Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using CarSales.Domain.ModelConfiguration;
+using CarSales.Domain.Abstraction;
 
 namespace CarSales.Infrastructure
 {
-    public class CarSalesDbContext : DbContext
+    public class CarSalesDbContext : DbContext, IUnitOfWork
     {
         public DbSet<CarDetails> CarDetails { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -14,8 +13,23 @@ namespace CarSales.Infrastructure
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new CarDetailsTypeConfiguration());
-            modelBuilder.ApplyConfiguration(new BookingEntityConfiguration());
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(CarSalesDbContext).Assembly);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                var result = await base.SaveChangesAsync(cancellationToken);
+
+                return result;
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                throw new Exception("Concurrency exception occurred.", ex);
+            }
         }
     }
 }

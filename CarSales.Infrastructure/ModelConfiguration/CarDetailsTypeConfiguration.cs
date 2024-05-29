@@ -25,6 +25,7 @@ namespace CarSales.Infrastructure.ModelConfiguration
             builder.Property(k => k.CompanyName)
                 .HasColumnName("company_name")
                 .IsRequired();
+
             builder.Property(k => k.Color)
                 .HasColumnName("color");
 
