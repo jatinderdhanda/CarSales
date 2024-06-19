@@ -7,27 +7,26 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CarSales.Infrastructure
+namespace CarSales.Infrastructure;
+
+public static class Bindings
 {
-    public static class Bindings
+    public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)
     {
-        public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)
+        var connectionString =
+        configuration.GetConnectionString("Database") ??
+        throw new ArgumentNullException(nameof(configuration));
+
+        services.AddDbContext<CarSalesDbContext>(options =>
         {
-            var connectionString =
-            configuration.GetConnectionString("Database") ??
-            throw new ArgumentNullException(nameof(configuration));
+            options.UseSqlServer(connectionString);
+        });
+        services.AddTransient<IDateTimeProvider, DateTimeProvider>();
+        services.AddScoped<IBookingRepository, BookingRepository>();
+        services.AddScoped<ICarDetailsRepository, CarDetailsRepository>();
+        services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<CarSalesDbContext>());
 
-            services.AddDbContext<CarSalesDbContext>(options =>
-            {
-                options.UseSqlServer(connectionString);
-            });
-            services.AddDbContext<CarSalesDbContext>();
-            services.AddTransient<IDateTimeProvider, DateTimeProvider>();
-            services.AddScoped<IBookingRepository, BookingRepository>();
-            services.AddScoped<ICarDetailsRepository, CarDetailsRepository>();
-            services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<CarSalesDbContext>());
-            return services;
-        }
-
+        return services;
     }
+
 }

@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CarSales.Infrastructure.ModelConfiguration
 {
-    public class CarDetailsTypeConfiguration : IEntityTypeConfiguration<CarDetails>
+    public class CarDetailsTypeConfiguration : IEntityTypeConfiguration<CarDetail>
     {
-        public void Configure(EntityTypeBuilder<CarDetails> builder)
+        public void Configure(EntityTypeBuilder<CarDetail> builder)
         {
             builder.ToTable("car_detials")
                 .HasKey(k => k.Id);
@@ -33,10 +33,10 @@ namespace CarSales.Infrastructure.ModelConfiguration
                 .HasColumnName("manufacture_year");
 
             builder.Property(k => k.Status)
-                .HasColumnName("status");
+                .HasColumnName("status").HasConversion<string>();
 
             builder.Property(k => k.FuelType)
-                .HasColumnName("fuel_type");
+                .HasColumnName("fuel_type").HasConversion<string>();
         }
     }
 }

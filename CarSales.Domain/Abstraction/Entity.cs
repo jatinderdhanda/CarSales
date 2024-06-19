@@ -1,27 +1,30 @@
-﻿namespace CarSales.Domain.Abstraction
+﻿namespace CarSales.Domain.Abstraction;
+
+public abstract class Entity
 {
-    public abstract class Entity
+    private readonly List<IDomainEvent> _domainEvents = new();
+    public Guid Id { get; init; }
+    protected Entity()
     {
-        private readonly List<IDomainEvent> _domainEvents = new();
-        public Guid Id { get; init; }
-        protected Entity(Guid id)
-        {
-            Id = id;
-        }
 
-        public IReadOnlyList<IDomainEvent> GetDomainEvents()
-        {
-            return _domainEvents.ToList();
-        }
+    }
+    protected Entity(Guid id)
+    {
+        Id = id;
+    }
 
-        public void ClearDomainEvents()
-        {
-            _domainEvents.Clear();
-        }
+    public IReadOnlyList<IDomainEvent> GetDomainEvents()
+    {
+        return _domainEvents.ToList();
+    }
 
-        protected void RaiseDomainEvent(IDomainEvent domainEvent)
-        {
-            _domainEvents.Add(domainEvent);
-        }
+    public void ClearDomainEvents()
+    {
+        _domainEvents.Clear();
+    }
+
+    protected void RaiseDomainEvent(IDomainEvent domainEvent)
+    {
+        _domainEvents.Add(domainEvent);
     }
 }

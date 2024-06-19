@@ -1,14 +1,18 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using CarSales.Application.Abstractions.PipelineBehavior;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace CarSales.Application
+namespace CarSales.Application;
+
+public static class Bindings
 {
-    public static class Bindings
+    public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        public static IServiceCollection AddApplication(this IServiceCollection services)
+        services.AddMediatR(configuration =>
         {
-            services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(Bindings).Assembly));
-            return services;
-        }
+            configuration.RegisterServicesFromAssembly(typeof(Bindings).Assembly);
 
+            configuration.AddOpenBehavior(typeof(ValidationBehavior<,>));
+        });
+        return services;
     }
 }

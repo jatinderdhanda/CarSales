@@ -33,9 +33,9 @@ namespace CarSales.Application.Commands.ReserveCarBooking
             try
             {
                 var booking = Booking.Reserve(
-                command.CarId,
-                command.EmployeeId,
-                command.CustomerId,
+                    command.CarId,
+                    command.EmployeeId,
+                    command.CustomerId,
                     duration,
                     _dateTimeProvider.UtcNow);
 
@@ -46,6 +46,10 @@ namespace CarSales.Application.Commands.ReserveCarBooking
                 return booking.Id;
             }
             catch (ConcurrencyException)
+            {
+                return Result.Failure<Guid>(BookingError.Overlap);
+            }
+            catch (Exception ex)
             {
                 return Result.Failure<Guid>(BookingError.Overlap);
             }

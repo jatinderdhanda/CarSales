@@ -1,8 +1,14 @@
+using CarSales.Application;
+using CarSales.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllers();
+builder.Services.AddApplication();
+builder.Services.AddDatabase(builder.Configuration);
+builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
@@ -17,11 +23,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller}/{action=Index}/{id?}");
-
 app.MapFallbackToFile("index.html");
+app.MapControllers();
 
 app.Run();

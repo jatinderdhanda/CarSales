@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CarSales.Application\CarSales.Application.csproj" />
     <ProjectReference Include="..\CarSales.Infrastructure\CarSales.Infrastructure.csproj" />
   </ItemGroup>
 
